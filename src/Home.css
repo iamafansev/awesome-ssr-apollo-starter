@@ -1,0 +1,23 @@
+.Home {
+  text-align: center;
+}
+
+.Home-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.Home-intro {
+  font-size: large;
+}
+
+.Home-resources {
+  list-style: none;
+}
+
+.Home-resources > li {
+  display: inline-block;
+  padding: 1rem;
+}
