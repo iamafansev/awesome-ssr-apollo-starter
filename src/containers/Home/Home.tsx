@@ -2,7 +2,7 @@ import React, { FC } from "react";
 
 import "./Home.css";
 
-const Home: FC = () => {
+export const Home: FC = () => {
   return (
     <div className="Home">
       <div className="Home-header">
@@ -16,5 +16,3 @@ const Home: FC = () => {
     </div>
   );
 };
-
-export default Home;

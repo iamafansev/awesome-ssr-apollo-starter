@@ -1,4 +1,4 @@
-const express = require("express");
+import express, { Request, Response } from "express";
 
 let app = require("./server").default;
 

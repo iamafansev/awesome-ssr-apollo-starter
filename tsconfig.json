@@ -8,8 +8,8 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "jsx": "react",
-    "lib": ["es6", "es2015", "es2017", "dom"],
-    "module": "commonjs",
+    "lib": ["es6", "es2015", "es2017", "ESNext", "dom"],
+    "module": "ESNext",
     "moduleResolution": "Node",
     "noImplicitAny": true,
     "noImplicitReturns": true,
@@ -20,7 +20,9 @@
     "strict": false,
     "pretty": true,
     "suppressImplicitAnyIndexErrors": true,
-    "target": "esnext"
+    "target": "esnext",
+    "rootDirs": ["src"],
+    "baseUrl": "src"
   },
   "exclude": [
     "node_modules",

@@ -1,9 +1,9 @@
 import express, { Request, Response } from "express";
-import React from "react";
 import { renderToString } from "react-dom/server";
 import { StaticRouter, StaticRouterProps } from "react-router-dom";
+import React from "react";
 
-import App from "./App";
+import { App } from "./App";
 
 type AssetName = "client";
 
