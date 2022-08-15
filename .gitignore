@@ -3,6 +3,7 @@ logs
 npm-debug.log*
 .DS_Store
 .vscode
+cache
 
 coverage
 node_modules

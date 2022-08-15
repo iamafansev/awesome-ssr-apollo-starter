@@ -20,7 +20,7 @@
     "strict": false,
     "pretty": true,
     "suppressImplicitAnyIndexErrors": true,
-    "target": "esnext",
+    "target": "ESNext",
     "rootDirs": ["src"],
     "baseUrl": "src"
   },
@@ -28,7 +28,6 @@
     "node_modules",
     "build",
     "scripts",
-    "acceptance-tests",
     "webpack",
     "jest",
     "razzle.config.js"
