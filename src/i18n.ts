@@ -10,8 +10,8 @@ const options: ReactOptions & InitOptions = {
     order: ["header"],
   },
   load: "languageOnly",
-  ns: ["translations"],
-  defaultNS: "translations",
+  ns: ["home", "about"],
+  defaultNS: "common",
   saveMissing: true,
   debug: false,
   interpolation: {

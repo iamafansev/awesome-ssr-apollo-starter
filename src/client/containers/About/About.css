@@ -1,14 +1,14 @@
-.Home {
+.About {
   text-align: center;
 }
 
-.Home-header {
-  background-color: gray;
+.About-header {
+  background-color: rgb(110, 152, 166);
   height: 150px;
   padding: 32px;
   color: white;
 }
 
-.Home-intro {
+.About-intro {
   font-size: large;
 }

@@ -1,0 +1,8 @@
+.Header {
+  padding: 32px;
+  text-align: center;
+}
+
+.HeaderNav > *:not(:last-child) {
+  margin-right: 24px;
+}

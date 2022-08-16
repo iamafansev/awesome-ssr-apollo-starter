@@ -4,16 +4,16 @@ import { useTranslation } from "react-i18next";
 
 import { MainLayout } from "client/components/MainLayout/MainLayout";
 
-import "./Home.css";
+import "./About.css";
 
-export const Home: FC = () => {
-  const [t] = useTranslation("home");
+export const About: FC = () => {
+  const [t] = useTranslation("about");
 
   return (
     <MainLayout>
       <Helmet title={t("meta.title")} />
-      <div className="Home">
-        <div className="Home-header">
+      <div className="About">
+        <div className="About-header">
           <h2>{t("title")}</h2>
           <p>{t("description")}</p>
         </div>
