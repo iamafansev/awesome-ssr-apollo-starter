@@ -5,7 +5,7 @@ import { renderToString } from "react-dom/server";
 import { StaticRouter, StaticRouterProps } from "react-router-dom";
 import { ChunkExtractor } from "@loadable/server";
 
-import { App } from "./containers/App/App";
+import { App } from "../client/containers/App/App";
 
 type RenderApp = {
   html?: string;

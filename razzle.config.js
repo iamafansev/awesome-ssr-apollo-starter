@@ -6,6 +6,12 @@ module.exports = {
   options: {
     verbose: true,
   },
+  modifyPaths(opts) {
+    const { paths } = opts;
+    paths.appServerIndexJs = path.join(paths.appPath, "src/ssr");
+    paths.appClientIndexJs = path.join(paths.appPath, "src/client");
+    return paths;
+  },
   modifyWebpackConfig(opts) {
     const config = opts.webpackConfig;
 
