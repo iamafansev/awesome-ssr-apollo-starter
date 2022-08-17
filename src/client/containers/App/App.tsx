@@ -3,8 +3,9 @@ import { Route, Routes } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { useTranslation } from "react-i18next";
 
-import { HomePageLazy } from "../Home/Home.lazy";
-import { AboutPageLazy } from "../About/About.lazy";
+import { homeRoute, aboutRoute } from "client/constants/routes";
+import { HomePageLazy } from "client/containers/Home/Home.lazy";
+import { AboutPageLazy } from "client/containers/About/About.lazy";
 
 import "./App.css";
 
@@ -15,8 +16,8 @@ export const App: FC = () => {
     <>
       <Helmet defaultTitle={t("meta.title")} />
       <Routes>
-        <Route path="/*" element={<HomePageLazy />} />
-        <Route path="/about" element={<AboutPageLazy />} />
+        <Route path={homeRoute} element={<HomePageLazy />} />
+        <Route path={aboutRoute} element={<AboutPageLazy />} />
       </Routes>
     </>
   );

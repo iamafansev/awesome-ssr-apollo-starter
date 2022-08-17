@@ -3,18 +3,6 @@ import { initReactI18next } from "react-i18next";
 import Backend from "i18next-http-backend";
 import LanguageDetector from "i18next-browser-languagedetector";
 
-import home from "client/locales/ru/home.json";
-import about from "client/locales/ru/about.json";
-import app from "client/locales/ru/app.json";
-
-export const resources = {
-  ru: {
-    about,
-    app,
-    home,
-  },
-} as const;
-
 const options: ReactOptions & InitOptions = {
   fallbackLng: "ru",
   supportedLngs: ["ru"],
@@ -22,8 +10,7 @@ const options: ReactOptions & InitOptions = {
     order: ["header"],
   },
   load: "languageOnly",
-  ns: ["home", "about"],
-  defaultNS: "common",
+  ns: ["home", "about", "app"],
   saveMissing: true,
   debug: false,
   interpolation: {
@@ -34,7 +21,6 @@ const options: ReactOptions & InitOptions = {
       return value;
     },
   },
-  resources,
   useSuspense: process && !process.release,
 };
 
