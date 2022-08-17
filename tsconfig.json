@@ -22,7 +22,8 @@
     "suppressImplicitAnyIndexErrors": true,
     "target": "ESNext",
     "rootDirs": ["src"],
-    "baseUrl": "src"
+    "baseUrl": "src",
+    "resolveJsonModule": true
   },
   "exclude": [
     "node_modules",
@@ -32,6 +33,7 @@
     "jest",
     "razzle.config.js"
   ],
+  "include": ["src", "src/@types"],
   "rules": {
     "@typescript-eslint/no-non-null-assertion": "off"
   },

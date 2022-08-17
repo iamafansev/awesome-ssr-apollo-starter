@@ -39,6 +39,7 @@ module.exports = {
     "import/no-dynamic-require": "off",
     "prettier/prettier": "error",
     "no-use-before-define": "off",
+    resolveJsonModule: true,
     "@typescript-eslint/no-use-before-define": ["error"],
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-unused-vars": "off",
@@ -66,7 +67,7 @@ module.exports = {
     "import/resolver": {
       node: {
         paths: ["src"],
-        extensions: [".js", ".jsx", ".ts", ".tsx"],
+        extensions: [".js", ".jsx", ".ts", ".tsx", ".json"],
       },
     },
   },
