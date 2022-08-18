@@ -3,6 +3,18 @@ import { initReactI18next } from "react-i18next";
 import Backend from "i18next-http-backend";
 import LanguageDetector from "i18next-browser-languagedetector";
 
+import about from "client/locales/ru/about.json";
+import app from "client/locales/ru/app.json";
+import home from "client/locales/ru/home.json";
+
+const resources = {
+  ru: {
+    about,
+    app,
+    home,
+  },
+};
+
 const options: ReactOptions & InitOptions = {
   fallbackLng: "ru",
   supportedLngs: ["ru"],
@@ -21,7 +33,11 @@ const options: ReactOptions & InitOptions = {
       return value;
     },
   },
-  useSuspense: process && !process.release,
+  partialBundledLanguages: true,
+  resources,
+  react: {
+    useSuspense: true,
+  },
 };
 
 if (process && !process.release) {
