@@ -7,7 +7,7 @@ import { MainLayout } from "client/components/MainLayout/MainLayout";
 import "./About.css";
 
 export const About: FC = () => {
-  const { t, ready } = useTranslation("about");
+  const { t } = useTranslation("about");
 
   return (
     <MainLayout>
