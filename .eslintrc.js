@@ -16,7 +16,7 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: "module",
   },
-  plugins: ["react", "@typescript-eslint", "prettier"],
+  plugins: ["react", "@typescript-eslint", "prettier", "@emotion"],
   extends: [
     "plugin:react/recommended",
     "airbnb",
@@ -25,6 +25,7 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
   ],
   rules: {
+    "@emotion/pkg-renaming": "error",
     "import/prefer-default-export": "off",
     "import/extensions": [
       "error",

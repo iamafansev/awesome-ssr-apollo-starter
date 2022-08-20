@@ -1,4 +1,11 @@
 {
-  "presets": ["razzle/babel", "@babel/typescript"],
-  "plugins": ["@loadable/babel-plugin"]
+  "presets": [
+    "razzle/babel",
+    "@babel/typescript",
+    [
+      "@babel/preset-react",
+      { "runtime": "automatic", "importSource": "@emotion/react" }
+    ]
+  ],
+  "plugins": ["@loadable/babel-plugin", "@emotion/babel-plugin"]
 }

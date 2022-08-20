@@ -23,7 +23,8 @@
     "target": "ESNext",
     "rootDirs": ["src"],
     "baseUrl": "src",
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "types": ["@emotion/react/types/css-prop"]
   },
   "exclude": [
     "node_modules",
