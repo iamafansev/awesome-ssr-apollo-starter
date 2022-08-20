@@ -9,8 +9,8 @@ const options: ReactOptions & InitOptions = {
   detection: {
     order: ["header"],
   },
+  defaultNS: "app",
   load: "languageOnly",
-  ns: ["app"],
   saveMissing: false,
   debug: false,
   interpolation: {

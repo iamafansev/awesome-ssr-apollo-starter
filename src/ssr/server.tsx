@@ -16,7 +16,7 @@ const bootstrap = () => {
   server
     .disable("x-powered-by")
     .use(i18nextMiddleware.handle(i18n))
-    .use("/locales", express.static(pathToLocales))
+    .use("/locales", express.static(pathToLocales, {}))
     .use(express.static(process.env.RAZZLE_PUBLIC_DIR!))
     .get("/*", async (req: Request, res: Response) => {
       const { html = "", redirect = "" } = await renderApp(req, res);
@@ -33,6 +33,7 @@ i18n
   .use(i18nextMiddleware.LanguageDetector)
   .init(
     {
+      ns: ["app", "home", "about"],
       backend: {
         loadPath: `${pathToLocales}/{{lng}}/{{ns}}.json`,
         addPath: `${pathToLocales}/{{lng}}/{{ns}}.missing.json`,

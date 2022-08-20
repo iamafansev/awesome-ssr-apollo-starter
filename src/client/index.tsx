@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { loadableReady } from "@loadable/component";
@@ -19,11 +19,9 @@ const BaseApp = () => {
   useSSR(window.initialI18nStore, window.initialLanguage);
 
   return (
-    <Suspense fallback={null}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </Suspense>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   );
 };
 
