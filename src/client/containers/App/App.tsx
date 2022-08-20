@@ -6,6 +6,7 @@ import { useTranslation } from "react-i18next";
 import { homeRoute, aboutRoute } from "client/constants/routes";
 import { HomePageLazy } from "client/containers/Home/Home.lazy";
 import { AboutPageLazy } from "client/containers/About/About.lazy";
+import { MainLayout } from "client/components/MainLayout/MainLayout";
 
 import "./App.css";
 
@@ -16,8 +17,10 @@ export const App: FC = () => {
     <>
       <Helmet defaultTitle={t("meta.title")} />
       <Routes>
-        <Route path={homeRoute} element={<HomePageLazy />} />
-        <Route path={aboutRoute} element={<AboutPageLazy />} />
+        <Route path="/" element={<MainLayout />}>
+          <Route path={homeRoute} element={<HomePageLazy />} />
+          <Route path={aboutRoute} element={<AboutPageLazy />} />
+        </Route>
       </Routes>
     </>
   );
