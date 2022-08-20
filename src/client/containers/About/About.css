@@ -1,11 +1,6 @@
-.About {
-  text-align: center;
-}
-
 .About-header {
   background-color: rgb(110, 152, 166);
-  height: 150px;
-  padding: 32px;
+  padding: 48px 0;
   color: white;
 }
 

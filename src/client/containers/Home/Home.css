@@ -1,11 +1,6 @@
-.Home {
-  text-align: center;
-}
-
 .Home-header {
   background-color: gray;
-  height: 150px;
-  padding: 32px;
+  padding: 48px 0;
   color: white;
 }
 

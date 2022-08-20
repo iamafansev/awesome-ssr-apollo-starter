@@ -4,24 +4,39 @@ import { BrowserRouter } from "react-router-dom";
 import { loadableReady } from "@loadable/component";
 import { Resource } from "i18next";
 import { useSSR } from "react-i18next";
+import { CacheProvider, EmotionCache } from "@emotion/react";
+import { ThemeProvider } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
 
+import { App } from "client/containers/App/App";
+import { createEmotionCache } from "client/utils/createEmotionCache";
+import { theme } from "client/theme";
 import "../i18n";
-import { App } from "./containers/App/App";
 
 declare global {
   interface Window {
     initialI18nStore: Resource;
     initialLanguage: string;
+    emotionCache?: EmotionCache;
   }
 }
+
+const clientSideEmotionCache = createEmotionCache();
 
 const BaseApp = () => {
   useSSR(window.initialI18nStore, window.initialLanguage);
 
+  const emotionCache = clientSideEmotionCache;
+
   return (
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <CacheProvider value={emotionCache}>
+      <BrowserRouter>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <App />
+        </ThemeProvider>
+      </BrowserRouter>
+    </CacheProvider>
   );
 };
 
