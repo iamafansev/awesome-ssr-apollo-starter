@@ -24,7 +24,7 @@
     "rootDirs": ["src"],
     "baseUrl": "src",
     "resolveJsonModule": true,
-    "types": ["@emotion/react/types/css-prop"]
+    "types": ["@emotion/react/types/css-prop", "webpack-env"]
   },
   "exclude": [
     "node_modules",
