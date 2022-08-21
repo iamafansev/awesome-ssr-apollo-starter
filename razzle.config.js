@@ -1,5 +1,8 @@
 const path = require("path");
 const LoadableWebpackPlugin = require("@loadable/webpack-plugin");
+const WebpackConfigHelpers = require("razzle-dev-utils/WebpackConfigHelpers");
+
+const Helpers = new WebpackConfigHelpers(process.cwd());
 
 module.exports = {
   plugins: ["babel-ts"],
@@ -14,6 +17,22 @@ module.exports = {
   },
   modifyWebpackConfig(opts) {
     const config = opts.webpackConfig;
+
+    config.module.rules[
+      config.module.rules.findIndex(Helpers.makeLoaderFinder("file-loader"))
+    ].exclude.push(/\.(svg)$/);
+
+    config.module.rules.push({
+      test: /\.svg$/i,
+      use: [
+        {
+          loader: "@svgr/webpack",
+          options: {
+            icon: true,
+          },
+        },
+      ],
+    });
 
     if (opts.env.target === "web") {
       const filename = path.resolve(__dirname, "build");
