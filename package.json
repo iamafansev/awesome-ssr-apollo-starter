@@ -9,6 +9,7 @@
     "start:prod": "NODE_ENV=production node build/server.js"
   },
   "dependencies": {
+    "@apollo/client": "3.6.9",
     "@emotion/cache": "11.10.1",
     "@emotion/react": "11.10.0",
     "@emotion/server": "11.10.0",
@@ -17,7 +18,9 @@
     "@loadable/server": "5.15.2",
     "@mui/icons-material": "5.8.4",
     "@mui/material": "5.10.1",
+    "cross-fetch": "3.1.5",
     "express": "4.18.1",
+    "graphql": "16.6.0",
     "i18next": "21.9.1",
     "i18next-browser-languagedetector": "6.1.5",
     "i18next-fs-backend": "1.1.5",

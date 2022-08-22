@@ -1,7 +1,7 @@
 import React from "react";
 import path from "path";
+import fetch from "cross-fetch";
 import { Request, Response } from "express";
-import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router-dom/server";
 import { ChunkExtractor } from "@loadable/server";
 import { I18nextProvider } from "react-i18next";
@@ -10,6 +10,13 @@ import { CacheProvider } from "@emotion/react";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
 import createEmotionServer from "@emotion/server/create-instance";
+import { renderToStringWithData } from "@apollo/client/react/ssr";
+import {
+  ApolloProvider,
+  ApolloClient,
+  createHttpLink,
+  InMemoryCache,
+} from "@apollo/client";
 
 import { App } from "client/containers/App/App";
 import { createEmotionCache } from "client/utils/createEmotionCache";
@@ -20,32 +27,53 @@ type RenderApp = {
   redirect?: string;
 };
 
-export const renderApp = (req: Request, _res: Response): RenderApp => {
+export const renderApp = async (
+  req: Request,
+  _res: Response
+): Promise<RenderApp> => {
   const cache = createEmotionCache();
   const {
     extractCriticalToChunks,
     constructStyleTagsFromChunks,
   } = createEmotionServer(cache);
 
+  const apolloClient = new ApolloClient({
+    ssrMode: true,
+    link: createHttpLink({
+      uri: "https://flyby-gateway.herokuapp.com/",
+      fetch,
+      headers: {
+        cookie: req.header("Cookie"),
+      },
+    }),
+    cache: new InMemoryCache(),
+  });
+
   const extractor = new ChunkExtractor({
     statsFile: path.resolve("build/loadable-stats.json"),
     entrypoints: ["client"],
   });
 
-  const jsx = extractor.collectChunks(
-    <CacheProvider value={cache}>
-      <I18nextProvider i18n={req.i18n}>
-        <StaticRouter location={req.url}>
-          <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <App />
-          </ThemeProvider>
-        </StaticRouter>
-      </I18nextProvider>
-    </CacheProvider>
+  const app = (
+    <ApolloProvider client={apolloClient}>
+      <CacheProvider value={cache}>
+        <I18nextProvider i18n={req.i18n}>
+          <StaticRouter location={req.url}>
+            <ThemeProvider theme={theme}>
+              <CssBaseline />
+              <App />
+            </ThemeProvider>
+          </StaticRouter>
+        </I18nextProvider>
+      </CacheProvider>
+    </ApolloProvider>
   );
 
-  const markup = renderToString(jsx);
+  const renderedApp = extractor.collectChunks(app);
+  const markup = await renderToStringWithData(renderedApp);
+
+  const initialState = apolloClient.extract();
+
   const helmet = Helmet.renderStatic();
 
   const emotionChunks = extractCriticalToChunks(markup);
@@ -93,6 +121,10 @@ export const renderApp = (req: Request, _res: Response): RenderApp => {
             window.initialI18nStore = JSON.parse('${JSON.stringify(
               initialI18nStore
             )}');
+            window.__APOLLO_STATE__ = ${JSON.stringify(initialState).replace(
+              /</g,
+              "\\u003c"
+            )}
           </script>
           ${scriptTags}
       </body>
