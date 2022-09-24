@@ -37,6 +37,8 @@ export const Home: FC = () => {
   const [t] = useTranslation("home");
   const { data } = useQuery(GET_LOCATIONS);
 
+  console.log(data);
+
   return (
     <>
       <Helmet title={t("meta.title")} />
