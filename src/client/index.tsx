@@ -2,30 +2,16 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { loadableReady } from "@loadable/component";
-import { Resource } from "i18next";
 import { useSSR } from "react-i18next";
 import { CacheProvider } from "@emotion/react";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  NormalizedCacheObject,
-} from "@apollo/client";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 
 import { App } from "client/containers/App/App";
 import { createEmotionCache } from "client/utils/createEmotionCache";
 import { theme } from "client/theme";
 import "../i18n";
-
-declare global {
-  interface Window {
-    initialI18nStore: Resource;
-    initialLanguage: string;
-    __APOLLO_STATE__: NormalizedCacheObject;
-  }
-}
 
 const clientSideEmotionCache = createEmotionCache();
 

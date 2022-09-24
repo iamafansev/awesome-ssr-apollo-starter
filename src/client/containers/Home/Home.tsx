@@ -1,11 +1,12 @@
 import React, { FC } from "react";
 import { Helmet } from "react-helmet";
-import { useQuery, gql } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { css } from "@emotion/react";
 import { useTranslation } from "react-i18next";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 
+import { GetLocationsDocument } from "./locationsQuery.graphql-generated";
 import CrystalSvg from "./crystal.svg";
 
 const RootCSS = css({
@@ -22,20 +23,9 @@ const CrystalCSS = css({
   color: "lightpink",
 });
 
-const GET_LOCATIONS = gql`
-  query GetLocations {
-    locations {
-      id
-      name
-      description
-      photo
-    }
-  }
-`;
-
 export const Home: FC = () => {
   const [t] = useTranslation("home");
-  const { data } = useQuery(GET_LOCATIONS);
+  const { data } = useQuery(GetLocationsDocument);
 
   console.log(data);
 
