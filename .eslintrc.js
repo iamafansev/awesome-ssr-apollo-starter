@@ -40,7 +40,7 @@ module.exports = {
     "import/no-dynamic-require": "off",
     "prettier/prettier": "error",
     "no-use-before-define": "off",
-    resolveJsonModule: true,
+    resolveJsonModule: "off",
     "@typescript-eslint/no-use-before-define": ["error"],
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-unused-vars": "off",

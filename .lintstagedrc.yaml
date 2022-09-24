@@ -1,3 +1,5 @@
-"src/**/*.{ts,tsx,json,svg,html,css}":
+"*.{js,ts,tsx}":
+  - eslint --fix
   - prettier --write
-  - git add
+"*.{html,json,yml}":
+  - "prettier --write"

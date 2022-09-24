@@ -11,9 +11,11 @@ npx create-razzle-app --example with-typescript-plugin with-typescript-plugin
 cd with-typescript-plugin
 yarn start
 ```
+
 <!-- END install generated instructions please keep comment here to allow auto update -->
 
 ## Idea behind the example
+
 This is an of how to use Razzle with [TypeScript](https://github.com/Microsoft/TypeScript).
 In `razzle.config.js`, we locate the part of the webpack configuration
 that is running `babel-loader` and swap it out for `ts-loader`.
@@ -62,4 +64,5 @@ this can make HMR extremely slow on larger apps. Thus, this example overwrites
 ```
 "^.+\\.(js|jsx)$": "<rootDir>/node_modules/razzle/config/jest/babelTransform.js",
 ```
+
 This will continue to transform .js files through babel.

@@ -7,8 +7,6 @@ import Link from "@mui/material/Link";
 
 import { homeRoute, aboutRoute } from "client/constants/routes";
 
-import "./Header.css";
-
 export const Header: FC = () => {
   return (
     <Box component="header" textAlign="center">
@@ -23,5 +21,5 @@ export const Header: FC = () => {
         </Stack>
       </Container>
     </Box>
-  )
-}
+  );
+};
