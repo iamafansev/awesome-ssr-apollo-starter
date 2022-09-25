@@ -5,6 +5,6 @@ declare global {
   interface Window {
     initialI18nStore: Resource;
     initialLanguage: string;
-    __APOLLO_STATE__: NormalizedCacheObject;
+    apolloState: NormalizedCacheObject;
   }
 }

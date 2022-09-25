@@ -40,7 +40,7 @@ export const renderApp = async (
   const apolloClient = new ApolloClient({
     ssrMode: true,
     link: createHttpLink({
-      uri: "https://flyby-gateway.herokuapp.com/",
+      uri: process.env.RAZZLE_API_ENDPOINT,
       fetch,
       headers: {
         cookie: req.header("Cookie"),
@@ -121,7 +121,7 @@ export const renderApp = async (
             window.initialI18nStore = JSON.parse('${JSON.stringify(
               initialI18nStore
             )}');
-            window.__APOLLO_STATE__ = ${JSON.stringify(initialState).replace(
+            window.apolloState = ${JSON.stringify(initialState).replace(
               /</g,
               "\\u003c"
             )}

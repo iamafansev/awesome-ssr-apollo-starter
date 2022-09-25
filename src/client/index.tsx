@@ -16,8 +16,8 @@ import "../i18n";
 const clientSideEmotionCache = createEmotionCache();
 
 const client = new ApolloClient({
-  uri: "http://flyby-gateway.herokuapp.com/",
-  cache: new InMemoryCache().restore(window.__APOLLO_STATE__),
+  uri: process.env.RAZZLE_API_ENDPOINT,
+  cache: new InMemoryCache().restore(window.apolloState),
 });
 
 const BaseApp = () => {

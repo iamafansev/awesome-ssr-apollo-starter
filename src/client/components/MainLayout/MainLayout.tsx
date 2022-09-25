@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from "react";
+import React, { FC } from "react";
 import { Outlet } from "react-router-dom";
 
 import { Header } from "../Header/Header";

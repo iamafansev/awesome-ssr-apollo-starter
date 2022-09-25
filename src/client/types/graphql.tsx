@@ -1,3 +1,4 @@
+/* eslint-disable */
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = {
@@ -46,7 +47,7 @@ export type Mutation = {
 };
 
 export type MutationSubmitReviewArgs = {
-  locationReview?: InputMaybe<LocationReviewInput>;
+  locationReview: LocationReviewInput;
 };
 
 export type Query = {
