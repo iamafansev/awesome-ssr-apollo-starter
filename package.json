@@ -6,6 +6,8 @@
     "build": "razzle build",
     "test": "razzle test --env=jsdom",
     "tsc": "tsc",
+    "lint": "eslint './**/*.{js,ts,tsx}'",
+    "prettify": "prettier './**/*.{js,ts,tsx,css}' --write",
     "start:prod": "NODE_ENV=production node build/server.js",
     "gen:types": "graphql-codegen --config codegen.js",
     "prepare": "husky install"
