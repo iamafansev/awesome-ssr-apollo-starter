@@ -1,68 +1,29 @@
-# Razzle TypeScript Example
+# Awesome react ssr starter
+
+This starter includes such technologies and tools as:
+- React with server rendering support (Razzle)
+- Apollo and gql code and type generation via @graphql-codegen
+- Material UI
+- Internationalization (i18next)
+- Routing (react-router)
+- Code splitting to reduce package (@loadable/component)
+- Generation of icon components from svg files (svgr)
+
+## Configuration
+
+Remove the ending example from all `.env.**.example` and change the `RAZZLE_API_ENDPOINT` variable, which will point to your `gql-uri`.
+
+You can also run in test mode with a value already set to `RAZZLE_API_ENDPOINT`
 
 ## How to use
 
-<!-- START install generated instructions please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN yarn update-examples TO UPDATE -->Create and start the example:
-
 ```bash
-npx create-razzle-app --example with-typescript-plugin with-typescript-plugin
-
-cd with-typescript-plugin
+yarn install
 yarn start
 ```
 
-<!-- END install generated instructions please keep comment here to allow auto update -->
+The application will open at http://localhost:3000/
 
-## Idea behind the example
+## Do you have any questions?
 
-This is an of how to use Razzle with [TypeScript](https://github.com/Microsoft/TypeScript).
-In `razzle.config.js`, we locate the part of the webpack configuration
-that is running `babel-loader` and swap it out for `ts-loader`.
-Additionally, we make sure Razzle knows how to resolve `.ts` and `.tsx` files.
-
-Lastly, we also need to modify our Jest configuration to handle typescript files.
-Thus we add `ts-jest` and `@types/jest` to our dev dependencies. Then we augment Razzle's default jest setup by adding a field in our `package.json`.
-
-```json
-// package.json
-
-{
-  ...
-  "jest": {
-    "transform": {
-      "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js",
-      "\\.css$": "<rootDir>/node_modules/razzle/config/jest/cssTransform.js",
-      "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/node_modules/razzle/config/jest/fileTransform.js"
-    },
-    "testMatch": [
-      "<rootDir>/src/**/__tests__/**/*.(ts|js)?(x)",
-      "<rootDir>/src/**/?(*.)(spec|test).(ts|js)?(x)"
-    ],
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "json"
-    ],
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx,ts,tsx}"
-    ]
-  }
-}
-```
-
-The `tslint.json` and `tsconfig.json` are taken from Microsoft's official
-[TypeScript-React-Starter](https://github.com/Microsoft/TypeScript-React-Starter).
-
-Note: You do not techincally _need_ to fully replace `babel-loader` with
-`ts-loader` to use TypeScript. Both TS and Babel transpile ES6 code,
-so when you run both webpack loaders you are making Razzle do twice the work. From our testing,
-this can make HMR extremely slow on larger apps. Thus, this example overwrites
-`babel-loader` with `ts-loader`. However, if you are incrementally moving to typescript you may want to run both loaders side by side. If you are running both, add this to your `jest.transform` setup in `package.json`:
-
-```
-"^.+\\.(js|jsx)$": "<rootDir>/node_modules/razzle/config/jest/babelTransform.js",
-```
-
-This will continue to transform .js files through babel.
+If you are missing build configuration information, you can most likely find it in the [Razzle documentation](https://razzlejs.org/]).
