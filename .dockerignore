@@ -1,0 +1,7 @@
+logs
+*.log
+.vscode/
+node_modules/
+build/
+cache/
+.husky/
