@@ -1,5 +1,6 @@
 {
     "name": "awesome-ssr-apollo-starter",
+    "version": 2,
     "installCommand": "yarn install --production=false --frozen-lockfile",
     "buildCommand": "yarn build",
     "outputDirectory": "build",
