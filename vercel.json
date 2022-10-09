@@ -1,0 +1,21 @@
+{
+    "name": "awesome-ssr-apollo-starter",
+    "version": 2,
+    "builds": [
+        {
+            "src": "build/public/**",
+            "use": "@vercel/static"
+        },
+        {
+            "src": "build/server.js",
+            "use": "@vercel/node"
+        }
+    ],
+    "routes": [
+        { "src": "/favicon.ico", "dest": "build/public/favicon.ico" },
+        { "src": "/robots.txt", "dest": "build/public/robots.txt" },
+        { "src": "/static/(.*)", "dest": "build/public/static/$1" },
+        { "src": "/locales/(.*)", "dest": "build/public/locales/$1" },
+        { "src": "/(.*)", "dest": "build/server.js" }
+    ]
+}
