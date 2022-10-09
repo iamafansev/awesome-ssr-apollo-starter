@@ -1,7 +1,7 @@
 import path from "path";
 import express, { Request, Response } from "express";
 import i18nextMiddleware from "i18next-http-middleware";
-import Backend from "i18next-fs-backend";
+import Backend from "i18next-fs-backend"
 
 import i18n from "../i18n";
 import { renderApp } from "./renderApp";
