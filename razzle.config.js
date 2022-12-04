@@ -8,6 +8,7 @@ module.exports = {
   plugins: ["babel-ts"],
   options: {
     verbose: true,
+    enableReactRefresh: true,
   },
   modifyPaths(opts) {
     const { paths } = opts;
@@ -43,10 +44,10 @@ module.exports = {
           writeToDisk: { filename },
         })
       );
-      
+
       config.performance = {
         maxEntrypointSize: 512000,
-        maxAssetSize: 512000
+        maxAssetSize: 512000,
       };
     }
 
